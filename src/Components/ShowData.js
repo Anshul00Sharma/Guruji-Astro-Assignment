@@ -1,50 +1,32 @@
 import React from "react";
 // bootstrap
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import ListItem from "./ListItem";
 
-const ShowData = ({ handleShow, astroDetails }) => {
+import ListItem from "./ListItem";
+import { Route, Routes, Link } from "react-router-dom";
+import AstroDetails from "./AstroDetails";
+import BirthDetails from "./BirthDetails";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+
+const ShowData = ({ handleShow, astroDetails, details }) => {
   return (
     <div style={styles.details}>
-      <button style={styles.button} onClick={handleShow}>
-        Enter Birth Details
-      </button>
+      <ButtonGroup aria-label="Basic example" style={styles.ButtonGroup}>
+        <Link to="/">
+          <Button style={styles.button}>Astrology Details</Button>
+        </Link>
+        <Button style={styles.button} onClick={handleShow}>
+          Change Birth Details
+        </Button>
+        <Link to="details">
+          <Button style={styles.button}>Birth Detials</Button>
+        </Link>
+      </ButtonGroup>
 
-      <Row style={styles.row}>
-        <Col style={styles.col}>
-          <ListItem name={"Charan"} value={astroDetails["Charan"]} />
-          <ListItem name={"Gan"} value={astroDetails["Gan"]} />
-          <ListItem name={"Karan"} value={astroDetails["Karan"]} />
-          <ListItem name={"Nadi"} value={astroDetails["Nadi"]} />
-          <ListItem name={"Naksahtra"} value={astroDetails["Naksahtra"]} />
-          <ListItem
-            name={"NaksahtraLord"}
-            value={astroDetails["NaksahtraLord"]}
-          />
-          <ListItem name={"SignLord"} value={astroDetails["SignLord"]} />
-          <ListItem name={"Tithi"} value={astroDetails["Tithi"]} />
-          <ListItem name={"Varna"} value={astroDetails["Varna"]} />
-          <ListItem name={"Vashya"} value={astroDetails["Vashya"]} />
-        </Col>
-        <Col style={styles.col}>
-          <ListItem name={"Yog"} value={astroDetails["Yog"]} />
-          <ListItem name={"Yoni"} value={astroDetails["Yoni"]} />
-          <ListItem name={"ascendant"} value={astroDetails["ascendant"]} />
-          <ListItem
-            name={"ascendant_lord"}
-            value={astroDetails["ascendant_lord"]}
-          />
-          <ListItem
-            name={"name_alphabet"}
-            value={astroDetails["name_alphabet"]}
-          />
-          <ListItem name={"paya"} value={astroDetails["paya"]} />
-          <ListItem name={"sign"} value={astroDetails["sign"]} />
-          <ListItem name={"tatva"} value={astroDetails["tatva"]} />
-          <ListItem name={"yunja"} value={astroDetails["yunja"]} />
-        </Col>
-      </Row>
+      <Routes>
+        <Route index element={<AstroDetails astroDetails={astroDetails} />} />
+        <Route path="details" element={<BirthDetails details={details} />} />
+      </Routes>
     </div>
   );
 };
@@ -53,7 +35,7 @@ const styles = {
     width: "100%",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-around",
+    // justifyContent: "space-around",
     alignItems: "center",
   },
   row: {
@@ -71,7 +53,7 @@ const styles = {
     alignItems: "center",
   },
   button: {
-    borderRadius: "10px",
+    // borderRadius: "10px",
     border: "none",
     padding: "7px",
     boxShadow:
@@ -79,6 +61,9 @@ const styles = {
     backgroundColor: "rgb(59,114,163)",
     width: "220px",
     color: "rgb(217,175,115)",
+  },
+  ButtonGroup: {
+    margin: "30px",
   },
 };
 

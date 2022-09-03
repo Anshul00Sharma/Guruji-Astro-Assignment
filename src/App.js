@@ -13,6 +13,7 @@ function App() {
   const [tzone, setTzone] = useState("");
   const [show, setShow] = useState(false);
   const [astroDetails, setAstroDetails] = useState({});
+  const [details, setDetails] = useState({});
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -42,7 +43,9 @@ function App() {
     })
       .then((res) => {
         console.log(res.data);
-        setAstroDetails(res.data);
+        api === "astro_details"
+          ? setAstroDetails(res.data)
+          : setDetails(res.data);
       })
       .catch((err) => {
         console.error(err);
@@ -62,6 +65,7 @@ function App() {
     };
 
     fetchData(data, "astro_details");
+    fetchData(data, "birth_details");
     setLat("");
     setLon("");
     setTzone("");
@@ -71,7 +75,11 @@ function App() {
   return (
     <div className="App">
       <Container style={styles.appContainer}>
-        <ShowData handleShow={handleShow} astroDetails={astroDetails} />
+        <ShowData
+          handleShow={handleShow}
+          astroDetails={astroDetails}
+          details={details}
+        />
         <DataInputForm
           show={show}
           handleClose={handleClose}
@@ -92,7 +100,7 @@ function App() {
 // styles
 const styles = {
   appContainer: {
-    height: "750px",
+    height: "800px",
     borderRadius: "10px ",
     marginTop: "40px",
     width: "1000px",
