@@ -2,6 +2,7 @@ import React from "react";
 // bootstrap
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+// Importing List Item Component
 import ListItem from "./ListItem";
 
 const AstroDetails = ({ astroDetails }) => {
@@ -45,6 +46,7 @@ const AstroDetails = ({ astroDetails }) => {
     </>
   );
 };
+//  Stylings
 const styles = {
   row: {
     padding: "0%",

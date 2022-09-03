@@ -1,10 +1,10 @@
 import React from "react";
-// bootstrap
-
-import ListItem from "./ListItem";
+// Importing react router
 import { Route, Routes, Link } from "react-router-dom";
+// Importing Local React Components
 import AstroDetails from "./AstroDetails";
 import BirthDetails from "./BirthDetails";
+// bootstrap
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 

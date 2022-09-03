@@ -12,6 +12,7 @@ const ListItem = ({ name, value }) => {
     </>
   );
 };
+// Stylings
 const listItemStyle = {
   display: "flex",
   padding: "10px",

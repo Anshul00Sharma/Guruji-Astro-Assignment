@@ -1,5 +1,7 @@
 import React from "react";
+// Importing List Item Component
 import ListItem from "./ListItem";
+// BootStrap
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
@@ -29,6 +31,7 @@ const BirthDetails = ({ details }) => {
     </>
   );
 };
+// Stylings
 const styles = {
   row: {
     padding: "0%",
