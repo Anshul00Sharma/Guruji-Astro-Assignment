@@ -126,7 +126,7 @@ const styles = {
     width: "1000px",
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
-    background: "rgb(87,208,255)",
+    // background: "rgb(87,208,255)",
     background:
       "radial-gradient(circle, rgba(87,208,255,1) 0%, rgba(54,99,148,1) 100%)",
     display: "flex",
